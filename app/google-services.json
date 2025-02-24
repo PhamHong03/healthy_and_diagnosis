@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "273718825037",
+    "project_id": "heathyadndiagnoise",
+    "storage_bucket": "heathyadndiagnoise.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273718825037:android:0e8ec61e3d4525445a8c04",
+        "android_client_info": {
+          "package_name": "com.example.hd_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWCPRF-jKOT8_RjV8h8I_yvVwKq94edJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
