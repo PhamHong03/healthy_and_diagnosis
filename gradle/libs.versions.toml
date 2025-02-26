@@ -20,6 +20,7 @@ hilt-compiler = "1.0.0"
 firebaseFirestoreKtx = "25.1.2"
 navigationTesting = "2.8.7"
 cameraCore = "1.4.1"
+coil = "2.2.2"
 
 [libraries]
 
@@ -54,6 +55,7 @@ androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtim
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "navigationTesting" }
 androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "cameraCore" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

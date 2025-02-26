@@ -1,14 +1,14 @@
-package com.example.hd_project
+package com.example.hd_project.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.hd_project.pages.DiagnosiScreen
-import com.example.hd_project.pages.HomeScreen
-import com.example.hd_project.pages.LoginScreen
-import com.example.hd_project.pages.SignUpScreen
+import com.example.hd_project.presentation.pages.DiagnosiScreen
+import com.example.hd_project.presentation.pages.HomeScreen
+import com.example.hd_project.presentation.pages.LoginScreen
+import com.example.hd_project.presentation.pages.SignUpScreen
 import com.example.hd_project.viewModel.AuthViewModel
 
 @Composable
@@ -46,9 +46,6 @@ fun MyAppNavigation(modifier: Modifier = Modifier, authViewModel: AuthViewModel)
                 navController = navController,
                 authViewModel = authViewModel
             )
-        }
-        composable(route = "camera" ){
-
         }
         composable(route = "patient_info" ){
 

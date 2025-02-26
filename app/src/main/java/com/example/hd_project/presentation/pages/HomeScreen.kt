@@ -1,4 +1,4 @@
-package com.example.hd_project.pages
+package com.example.hd_project.presentation.pages
 
 import android.util.Log
 import androidx.compose.foundation.Image
@@ -41,7 +41,7 @@ import androidx.navigation.testing.TestNavHostController
 import com.example.hd_project.R
 import com.example.hd_project.components.HeaderSection
 import com.example.hd_project.components.SearchBar
-import com.example.hd_project.model.MenuItemData
+import com.example.hd_project.domain.model.MenuItemData
 import com.example.hd_project.viewModel.AuthState
 import com.example.hd_project.viewModel.AuthViewModel
 

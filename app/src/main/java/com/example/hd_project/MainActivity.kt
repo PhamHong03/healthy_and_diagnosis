@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.example.hd_project.presentation.navigation.MyAppNavigation
 import com.example.hd_project.ui.theme.HD_projectTheme
 import com.example.hd_project.viewModel.AuthViewModel
 import com.example.hd_project.viewModel.AuthViewModelFactory

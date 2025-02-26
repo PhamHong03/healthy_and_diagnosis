@@ -6,5 +6,5 @@
     <string name="login">ĐĂNG NHẬP</string>
     <string name="continue_with">Tiếp tục với</string>
     <string name="web_client_id">273718825037-ikp3v00l8rcqkthloe1doci95692jln4.apps.googleusercontent.com</string>
-    <string name="usecamera">Bằng hình ảnh?</string>
+    <string name="usecamera">Chọn ảnh từ thư viện</string>
 </resources>

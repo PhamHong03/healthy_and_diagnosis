@@ -1,4 +1,4 @@
-package com.example.hd_project.model
+package com.example.hd_project.domain.model
 
 data class MenuItemData(
     val title: String,
