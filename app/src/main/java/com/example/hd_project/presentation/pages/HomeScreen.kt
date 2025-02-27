@@ -115,7 +115,7 @@ fun MenuItemCard(item: MenuItemData, navController: NavController) {
         modifier = Modifier
             .size(160.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(Color(0xFFFFF1F1))
+            .background(Color(0xFFFFFFFF  ))
             .padding(16.dp)
             .clickable {
                 navController.navigate(item.destination)

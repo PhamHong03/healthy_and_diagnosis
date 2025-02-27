@@ -25,7 +25,7 @@ import com.example.hd_project.ui.theme.unfocusedTextFieldText
 
 class PasswordVisualTransformation : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
-        val transformed = "*".repeat(text.length)  // Thay thế ký tự bằng dấu sao
+        val transformed = "*".repeat(text.length)
         return TransformedText(AnnotatedString(transformed), OffsetMapping.Identity)
     }
 }
@@ -42,9 +42,9 @@ fun LoginTextField(
 ) {
     val uiColor: Color = if (isSystemInDarkTheme()) Color.White else Color.Black
     val visualTransformation = if (isPasswordField && !isPasswordVisible) {
-        PasswordVisualTransformation()  // Sử dụng visual transformation tùy chỉnh
+        PasswordVisualTransformation()
     } else {
-        VisualTransformation.None  // Không áp dụng transformation nếu mật khẩu hiển thị
+        VisualTransformation.None
     }
     TextField(
         modifier = modifier,
