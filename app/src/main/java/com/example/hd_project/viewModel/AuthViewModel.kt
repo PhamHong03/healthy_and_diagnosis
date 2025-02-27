@@ -40,7 +40,7 @@ class AuthViewModel(
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     init {
-//        resetAuthState()
+        resetAuthState()
         Firebase.auth.addAuthStateListener { firebaseAuth ->
             val user = firebaseAuth.currentUser
             if (user != null) {

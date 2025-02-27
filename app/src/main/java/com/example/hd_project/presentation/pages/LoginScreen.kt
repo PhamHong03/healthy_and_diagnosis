@@ -251,9 +251,9 @@ fun LoginSection(navController: NavController, authViewModel: AuthViewModel) {
 
     LaunchedEffect(authState.value) {
         if (authState.value is AuthState.Authenticated &&
-            navController.currentDestination?.route != "home"
+            navController.currentDestination?.route != "select_role"
         ) {
-            navController.navigate("home") {
+            navController.navigate("select_role") {
                 popUpTo("login") { inclusive = true }
             }
         }

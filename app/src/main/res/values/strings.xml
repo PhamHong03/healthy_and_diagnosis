@@ -7,4 +7,6 @@
     <string name="continue_with">Tiếp tục với</string>
     <string name="web_client_id">273718825037-ikp3v00l8rcqkthloe1doci95692jln4.apps.googleusercontent.com</string>
     <string name="usecamera">Chọn ảnh từ thư viện</string>
+    <string name="roleDoctor">Bạn là Bác sĩ?</string>
+    <string name="roleCustomer">Bạn không phải Bác sĩ?</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.hd_project.components.SelectRoleScreen
 import com.example.hd_project.presentation.pages.DiagnosiScreen
 import com.example.hd_project.presentation.pages.HomeScreen
 import com.example.hd_project.presentation.pages.LoginScreen
@@ -30,6 +31,16 @@ fun MyAppNavigation(modifier: Modifier = Modifier, authViewModel: AuthViewModel)
                 authViewModel = authViewModel
             )
         }
+        composable(route = "select_role"){
+            SelectRoleScreen(
+                clickRoleDoctor = {
+                    navController.navigate("home")
+                },
+                clickRoleCustomer = {
+                    navController.navigate("customer_home")
+                })
+        }
+
         composable(route = "home"){
             HomeScreen(
                 modifier = modifier,
