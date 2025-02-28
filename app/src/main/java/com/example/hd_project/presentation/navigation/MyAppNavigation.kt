@@ -7,8 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hd_project.components.InputNoCertificate
 import com.example.hd_project.components.SelectRoleScreen
-import com.example.hd_project.presentation.pages.DiagnosiScreen
-import com.example.hd_project.presentation.pages.HomeScreen
+import com.example.hd_project.presentation.pages.doctor.DiagnosiScreen
+import com.example.hd_project.presentation.pages.doctor.HomeScreen
 import com.example.hd_project.presentation.pages.LoginScreen
 import com.example.hd_project.presentation.pages.SignUpScreen
 import com.example.hd_project.viewModel.AuthViewModel

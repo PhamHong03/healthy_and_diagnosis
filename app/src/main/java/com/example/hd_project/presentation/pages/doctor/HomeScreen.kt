@@ -1,4 +1,4 @@
-package com.example.hd_project.presentation.pages
+package com.example.hd_project.presentation.pages.doctor
 
 import android.util.Log
 import androidx.compose.foundation.Image
@@ -139,8 +139,6 @@ fun MenuItemCard(item: MenuItemData, navController: NavController) {
         }
     }
 }
-
-
 
 @Composable
 fun MenuGrid(menuItems: List<MenuItemData>, navController: NavController) {
