@@ -72,6 +72,8 @@ dependencies {
     implementation(libs.firebase.firestore.ktx)
     implementation(libs.androidx.navigation.testing)
     implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.datastore.core.android)
+    implementation(libs.vision.internal.vkp)
     kapt(libs.hilt.android.compiler)
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)

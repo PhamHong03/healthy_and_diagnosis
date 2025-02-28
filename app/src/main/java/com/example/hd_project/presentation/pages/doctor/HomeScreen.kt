@@ -14,16 +14,34 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,6 +60,7 @@ import com.example.hd_project.R
 import com.example.hd_project.components.HeaderSection
 import com.example.hd_project.components.SearchBar
 import com.example.hd_project.domain.model.MenuItemData
+import com.example.hd_project.presentation.pages.customer.GridSection
 import com.example.hd_project.viewModel.AuthState
 import com.example.hd_project.viewModel.AuthViewModel
 
@@ -54,6 +73,10 @@ fun HomeScreen(
     authViewModel: AuthViewModel
 ) {
     val authState = authViewModel.authState.observeAsState()
+
+    val notificationCount by remember {
+        mutableStateOf(5)
+    }
 
     LaunchedEffect(authState.value) {
         try {
@@ -81,8 +104,17 @@ fun HomeScreen(
         MenuItemData("Cá nhân", R.drawable.ic_personal, "profile", "2 Thông tin"),
         MenuItemData("Cài đặt", R.drawable.ic_settings, "settings", "5 Thông tin")
     )
+    val section2 = listOf(
+        Icons.Default.Notifications to "Nhắc nhở",
+        Icons.Default.ShoppingCart to "Mua hàng",
+        Icons.Default.Add to "Them tien ich"
+    )
 
-//    val uiColor: Color = if (isSystemInDarkTheme()) Color.White else Color.Black
+    val section3 = listOf(
+        Icons.Default.Settings to "Cài đặt",
+        Icons.Default.Info to "Thông tin"
+    )
+
     Box(
         contentAlignment = Alignment.TopCenter
     ) {
@@ -94,7 +126,6 @@ fun HomeScreen(
             contentDescription = null,
             contentScale = ContentScale.FillBounds
         )
-
         Column(
             modifier = modifier
                 .fillMaxSize()
@@ -102,7 +133,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            HeaderSection(authViewModel)
+            HeaderSection(authViewModel, notificationCount, "Hello Dr. ")
             SearchBar()
             MenuGrid(items, navController)
         }
@@ -113,9 +144,9 @@ fun HomeScreen(
 fun MenuItemCard(item: MenuItemData, navController: NavController) {
     Box(
         modifier = Modifier
-            .size(160.dp)
+            .size(140.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(Color(0xFFFFFFFF  ))
+            .background(Color(0xFFFFFFFF))
             .padding(16.dp)
             .clickable {
                 navController.navigate(item.destination)
@@ -146,7 +177,7 @@ fun MenuGrid(menuItems: List<MenuItemData>, navController: NavController) {
         columns = GridCells.Fixed(2),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),  
+            .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
@@ -154,18 +185,21 @@ fun MenuGrid(menuItems: List<MenuItemData>, navController: NavController) {
             MenuItemCard(item, navController)
         }
     }
-}
+//    LazyRow(
+//        modifier = Modifier
+//            .fillMaxWidth()
+//            .padding(16.dp),
+//        horizontalArrangement = Arrangement.spacedBy(12.dp)
+//    ) {
+//        items(menuItems.chunked(2)) { rowItems ->
+//            Column(
+//                verticalArrangement = Arrangement.spacedBy(12.dp)
+//            ) {
+//                rowItems.forEach { item ->
+//                    MenuItemCard(item, navController)
+//                }
+//            }
+//        }
+//    }
 
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewHomeScreen() {
-    val navController = TestNavHostController(LocalContext.current)
-    val authViewModel: AuthViewModel = viewModel()
-
-    HomeScreen(
-        modifier = Modifier,
-        navController = navController,
-        authViewModel = authViewModel
-    )
 }

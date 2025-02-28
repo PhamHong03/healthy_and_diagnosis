@@ -11,6 +11,7 @@ import com.example.hd_project.presentation.pages.doctor.DiagnosiScreen
 import com.example.hd_project.presentation.pages.doctor.HomeScreen
 import com.example.hd_project.presentation.pages.LoginScreen
 import com.example.hd_project.presentation.pages.SignUpScreen
+import com.example.hd_project.presentation.pages.customer.HomeScreenCustomer
 import com.example.hd_project.viewModel.AuthViewModel
 
 @Composable
@@ -86,5 +87,14 @@ fun MyAppNavigation(modifier: Modifier = Modifier, authViewModel: AuthViewModel)
 
         }
 
+
+
+        composable(route = "customer_home"){
+            HomeScreenCustomer(
+                modifier = modifier,
+                navController = navController,
+                authViewModel = authViewModel
+            )
+        }
     }
 }

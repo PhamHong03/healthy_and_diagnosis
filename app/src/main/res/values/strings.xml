@@ -9,4 +9,5 @@
     <string name="usecamera">Chọn ảnh từ thư viện</string>
     <string name="roleDoctor">Bạn là Bác sĩ?</string>
     <string name="roleCustomer">Bạn không phải Bác sĩ?</string>
+    <string name="booking">Hôm nay bạn thế nào?</string>
 </resources>

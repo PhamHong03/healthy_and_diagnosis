@@ -52,7 +52,9 @@ fun DiagnosiScreen(
     authViewModel: AuthViewModel
 ) {
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
-
+    val notificationCount by remember {
+        mutableStateOf(5)
+    }
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -84,7 +86,7 @@ fun DiagnosiScreen(
                     )
                 }
             }
-            HeaderSection(authViewModel)
+            HeaderSection(authViewModel, notificationCount, "Hello Dr. ")
             Diagnosis(
                 onClick = {
                     val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)

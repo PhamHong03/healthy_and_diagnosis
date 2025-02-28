@@ -1,9 +1,13 @@
 package com.example.hd_project.components
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -16,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,7 +28,11 @@ import com.example.hd_project.R
 import com.example.hd_project.viewModel.AuthViewModel
 
 @Composable
-fun HeaderSection(authViewModel: AuthViewModel) {
+fun HeaderSection(
+    authViewModel: AuthViewModel,
+    notificationCount: Int,
+    text: String
+) {
     val username by authViewModel.username.observeAsState("")
 
     Row(
@@ -39,14 +48,33 @@ fun HeaderSection(authViewModel: AuthViewModel) {
         )
         Spacer(modifier = Modifier.width(8.dp))
         Column {
-            Text(text = "Hello Dr. $username", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            Text(text = "How are you today?", fontSize = 14.sp, color = Color.Gray)
+            Text(text ="$text $username", fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            Text(text = stringResource(id = R.string.booking), fontSize = 14.sp, color = Color.Gray)
         }
         Spacer(modifier = Modifier.weight(1f))
-        Icon(
-            painter = painterResource(id = R.drawable.ic_bell),
-            contentDescription = "Notifications",
-            modifier = Modifier.size(24.dp)
-        )
+        Box {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_bell),
+                contentDescription = "Notifications",
+                modifier = Modifier.size(24.dp)
+            )
+            if (notificationCount > 0) {
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .offset(x = (8).dp, y = (-12).dp)
+                        .size(if (notificationCount > 9) 22.dp else 18.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = if (notificationCount > 99) "99+" else notificationCount.toString(),
+                        color = Color.Red,
+                        fontSize = if (notificationCount > 9) 10.sp else 12.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+            }
+        }
     }
 }
+
